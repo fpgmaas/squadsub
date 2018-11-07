@@ -3,8 +3,22 @@ import numpy as np
 from itertools import product
 
 class SkillMatrix():
+    """
+    A Class to hold a skillmatrix and return its values or other parameters like the player- and position names.
+    """
 
-    def __init__(self, skillmatrix):
+    def __init__(self, skillmatrix, fairness=False):
+        """
+        :param skillmatrix: The skillmatrix is expected in shape p x q where p is the number of rows, q is the number of columns,
+        and every value [p,q] represents the performance of player p playing at position q.
+        :param fairness: A parameter to indicate that all values in a row should be scaled so that the maximum for that
+        row is 1. This will make the solution more fair in the sense that players have more equal probabilities of
+        substituting equally often.
+        """
+
+        for i in range(skillmatrix.shape[0]):
+            skillmatrix.iloc[i] = np.round(skillmatrix.iloc[i] / np.max(skillmatrix.iloc[i]))
+
         self.players = list(range(skillmatrix.shape[0]))
         self.player_names = skillmatrix.index.tolist()
         self.positions = list(range(skillmatrix.shape[1]))
@@ -32,6 +46,16 @@ class SkillMatrix():
 
 
 def get_substitution_dataframe(solution_per_position, sk, windows) -> pd.DataFrame:
+    """
+    Convert a solution in the shape [q,p,w] to a DataFrame of the substitutions to be performed at certain time windows,
+    where q is the number of positions, p is the number of players, and w is the time window.
+
+    :param solution_per_position: A solution in the shape [q,p,w] where solution_per_position[q,p,w] is 1 if
+    player p plays at position q during time window w, and 0 otherwise.
+    :param sk: a skillmatrix of class SkillMatrix.
+    :param windows: a List of integers representing the different time windows.
+    :return: A DataFrame with the substitutions to be performed at certain time windows.
+    """
     positions = sk.get_positions()
     player_names = sk.get_player_names()
     # Get a list of the substitutions
@@ -47,9 +71,20 @@ def get_substitution_dataframe(solution_per_position, sk, windows) -> pd.DataFra
     df_substitutions = df_substitutions.reset_index()
     df_substitutions['player_out'] = [player_names[i] for i in df_substitutions['player_out']]
     df_substitutions['player_in'] = [player_names[i] for i in df_substitutions['player_in']]
+    df_substitutions = df_substitutions.drop('index', axis=1)
     return df_substitutions
 
 def get_squad_dataframe(solution_per_time,sk,windows):
+    """
+    Convert a solution in the shape [w,q,p] to a long DataFrame of all the player's positions at each time window,
+    where q is the number of positions, p is the number of players, and w is the time window.
+
+    :param solution_per_time: A solution in the shape [w,q,p] where solution_per_position[w,q,p] is 1 if
+    player p plays at position q during time window w, and 0 otherwise.
+    :param sk: a skillmatrix of class SkillMatrix.
+    :param windows: a List of integers representing the different time windows.
+    :return: A long DataFrame with all the player's positions at each time window
+    """
     players = sk.get_players()
     positions = sk.get_positions()
     player_names = sk.get_player_names()
@@ -72,18 +107,5 @@ def get_squad_dataframe(solution_per_time,sk,windows):
     df_squad['position'] = df_squad['position'].fillna('Substitute')
     df_squad['score'] = [sk.skillmatrix[df_squad['position'][i]][df_squad['player'][i]]
                          if df_squad['position'][i] is not 'Substitute' else 0 for i in range(df_squad.shape[0])]
+    df_squad = df_squad.drop('index', axis=1)
     return df_squad
-
-def write_result_to_file(file_name, objective_score, df_squad, df_substitutions, player_names):
-    tfile = open(file_name, 'w')
-    tfile.write('Optimal score: {:.2f}'.format(objective_score))
-    tfile.write('\n\n')
-    tfile.write(df_squad.to_string())
-    tfile.write('\n\n')
-    tfile.write(df_substitutions.to_string())
-    for p in player_names:
-        tfile.write('\n\n')
-        tfile.write(p + ': ')
-        tfile.write(' - '.join((df_squad[df_squad['player'] == p][['position', 'score']]).apply(
-            lambda x: '{} ({})'.format(x[0], str(x[1])), axis=1).tolist()))
-    tfile.close()

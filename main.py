@@ -1,22 +1,31 @@
-import pandas as pd
-import numpy as np
-from pulp import *
-from itertools import product
-from utils import *
 from squad_problem import *
+import pandas as pd
 
-# SETTINGS --------------------------------------------------------------
+
+# SETTINGS -------------------------------------------------------------------------------------------------------------
+
+# Scale all player scores to increase fairness (scale the scores for each player such that the maximum per player is 1).
+fairness = True
+# Number of time windows. Setting this to a value x will create (x-1) substitution moments during the match.
+n_windows = 10
+# Duration of the match in minutes. Used to format the results to make them easier to use.
+match_time = 90
+# The total number of windows that a player should be in the field before being allowed to be subbed again. Can be used to
+# avoid great skewness in substitutions (e.g. one player substituting often at beginning of match, other often at end).
+# Setting this value too high can increase the complexity of the LP problem.
+min_windows_between_sub = 2
+# The total number of unique solutions to generate.
+n_solutions = 10
+
+# PREPARE DATA FOR LP PROBLEM ------------------------------------------------------------------------------------------
 
 skillmatrix = pd.read_csv('data/skillmatrix.csv', sep=',',header=0, index_col = 0)
-sk = SkillMatrix(skillmatrix)
+sk = SkillMatrix(skillmatrix, fairness = fairness)
 
-n_windows = 10
-match_time = 90
-min_windows_between_sub = 2 # To avoid great skewness in substitutions (e.g. one player substituting often at beginning of match, other often at end).
-n_solutions = 10 # How many solutions to create
 windows = list(range(n_windows))
 
-# LINEAR OPTIMIZATION -------------------------------------------------
+# LINEAR OPTIMIZATION --------------------------------------------------------------------------------------------------
+
 squad_problem = SquadProblem(sk, n_windows, match_time, min_windows_between_sub)
 squad_solution = squad_problem.solve()
 
@@ -31,12 +40,10 @@ for i in range(n_solutions):
         squad_problem.solve()
 
         if squad_solution.get_lp_status()>0:
-            squad_solution.write_solution_to_file('results/result_' + str(i) + '.txt')
+            squad_solution.write_solution_to_txt_file('results/result_' + str(i) + '.txt')
+            squad_solution.write_squad_dataframe_to_csv('results/squad_' + str(i) + '.csv')
+            squad_solution.write_substitutions_dataframe_to_csv('results/substitutions_' + str(i) + '.csv')
 
         elif i==0:
             tfile = open('INFEASIBLE PROBLEM', 'w')
             tfile.close()
-
-
-
-
