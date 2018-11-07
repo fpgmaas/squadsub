@@ -58,9 +58,10 @@ class SquadProblem:
 
         # We want players to play approximately an equal amount of time.
         T1 = np.floor(len(windows) * len(positions) / len(players))
+        T2 = np.ceil(len(windows) * len(positions) / len(players))
         for p in players:
             prob += lpSum([x[p][q][w] for w in windows for q in positions]) >= T1
-            # prob += lpSum([x[p][q][w] for w in windows for q in positions]) <= T2
+            prob += lpSum([x[p][q][w] for w in windows for q in positions]) <= T2
 
         # Every player should occupy at most 1 position in the pitch during any given timewindow.
         for p in players:

@@ -16,8 +16,9 @@ class SkillMatrix():
         substituting equally often.
         """
 
-        for i in range(skillmatrix.shape[0]):
-            skillmatrix.iloc[i] = np.round(skillmatrix.iloc[i] / np.max(skillmatrix.iloc[i]))
+        if fairness:
+            for i in range(skillmatrix.shape[0]):
+                skillmatrix.iloc[i] = np.round(skillmatrix.iloc[i] / np.max(skillmatrix.iloc[i]))
 
         self.players = list(range(skillmatrix.shape[0]))
         self.player_names = skillmatrix.index.tolist()

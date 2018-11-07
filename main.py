@@ -1,7 +1,6 @@
 from squad_problem import *
 import pandas as pd
 
-
 # SETTINGS -------------------------------------------------------------------------------------------------------------
 
 # Scale all player scores to increase fairness (scale the scores for each player such that the maximum per player is 1).
