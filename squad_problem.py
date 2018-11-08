@@ -52,17 +52,6 @@ class SquadProblem:
         # The objective function, maximimize the total skills of the team.
         prob += lpSum([skillvalues[p][q] * x[p][q][w] for p in players for q in positions for w in windows])
 
-        # During every timewindow, there should be exactly as many players in the field as there are available positions
-        for w in windows:
-            prob += lpSum([x[p][q][w] for p in players for q in positions]) == len(positions)
-
-        # We want players to play approximately an equal amount of time.
-        T1 = np.floor(len(windows) * len(positions) / len(players))
-        T2 = np.ceil(len(windows) * len(positions) / len(players))
-        for p in players:
-            prob += lpSum([x[p][q][w] for w in windows for q in positions]) >= T1
-            prob += lpSum([x[p][q][w] for w in windows for q in positions]) <= T2
-
         # Every player should occupy at most 1 position in the pitch during any given timewindow.
         for p in players:
             for w in windows:
@@ -79,6 +68,13 @@ class SquadProblem:
             for p in players:
                 for w in windows[:-1]:
                     prob += lpSum([x[p][q][w + 1] for q in positions if q != q_star] + [x[p][q_star][w]]) <= 1
+
+        # We want players to play approximately an equal amount of time.
+        T1 = np.floor(len(windows) * len(positions) / len(players))
+        T2 = np.ceil(len(windows) * len(positions) / len(players))
+        for p in players:
+            prob += lpSum([x[p][q][w] for w in windows for q in positions]) >= T1
+            prob += lpSum([x[p][q][w] for w in windows for q in positions]) <= T2
 
         # A player is not allowed to be a substitute two windows in a row
         for p in players:
