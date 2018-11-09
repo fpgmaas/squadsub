@@ -4,7 +4,7 @@ import pandas as pd
 # SETTINGS -------------------------------------------------------------------------------------------------------------
 
 # Scale all player scores to increase fairness (scale the scores for each player such that the maximum per player is 1).
-fairness = True
+fairness = False
 # Number of time windows. Setting this to a value x will create (x-1) substitution moments during the match.
 n_windows = 10
 # Duration of the match in minutes. Used to format the results to make them easier to use.
@@ -39,9 +39,9 @@ for i in range(n_solutions):
         squad_problem.solve()
 
         if squad_solution.get_lp_status()>0:
-            squad_solution.write_solution_to_txt_file('results/result_' + str(i) + '.txt')
-            squad_solution.write_squad_dataframe_to_csv('results/squad_' + str(i) + '.csv')
-            squad_solution.write_substitutions_dataframe_to_csv('results/substitutions_' + str(i) + '.csv')
+            squad_solution.write_solution_to_txt_file('results/' + str(i) + '_result.txt')
+            squad_solution.write_squad_dataframe_to_csv('results/' + str(i) + '_squad.csv')
+            squad_solution.write_substitutions_dataframe_to_csv('results/' + str(i) + '_substitutions.csv')
 
         elif i==0:
             tfile = open('INFEASIBLE PROBLEM', 'w')
