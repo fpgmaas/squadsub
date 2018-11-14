@@ -11,14 +11,7 @@ class SkillMatrix():
         """
         :param skillmatrix: The skillmatrix is expected in shape p x q where p is the number of rows, q is the number of columns,
         and every value [p,q] represents the performance of player p playing at position q.
-        :param fairness: A parameter to indicate that all values in a row should be scaled so that the maximum for that
-        row is 1. This will make the solution more fair in the sense that players have more equal probabilities of
-        substituting equally often.
         """
-
-        if fairness:
-            for i in range(skillmatrix.shape[0]):
-                skillmatrix.iloc[i] = np.round(skillmatrix.iloc[i] / np.max(skillmatrix.iloc[i]))
 
         self.players = list(range(skillmatrix.shape[0]))
         self.player_names = skillmatrix.index.tolist()

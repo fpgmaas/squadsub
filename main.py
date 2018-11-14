@@ -3,8 +3,6 @@ import pandas as pd
 
 # SETTINGS -------------------------------------------------------------------------------------------------------------
 
-# Scale all player scores to increase fairness (scale the scores for each player such that the maximum per player is 1).
-fairness = False
 # Number of time windows. Setting this to a value x will create (x-1) substitution moments during the match.
 n_windows = 10
 # Duration of the match in minutes. Used to format the results to make them easier to use.
@@ -19,7 +17,7 @@ n_solutions = 10
 # PREPARE DATA FOR LP PROBLEM ------------------------------------------------------------------------------------------
 
 skillmatrix = pd.read_csv('data/skillmatrix.csv', sep=',',header=0, index_col = 0)
-sk = SkillMatrix(skillmatrix, fairness = fairness)
+sk = SkillMatrix(skillmatrix)
 
 windows = list(range(n_windows))
 
