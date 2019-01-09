@@ -1,0 +1,167 @@
+Optimal score: 414.00
+
+                            player    position  window  score      minutes
+0                   Wreck-It Ralph          LB       0      4   0.0 -  9.0
+1                 Carl Fredricksen         CB1       0      5   0.0 -  9.0
+2                              EVE         CB2       0      3   0.0 -  9.0
+3                           WALL-E          RB       0      3   0.0 -  9.0
+4                    Miguel Rivera          LM       0      4   0.0 -  9.0
+5                         Kowalski          CM       0      5   0.0 -  9.0
+6    Hiccup Horrendous Haddock III          RM       0      4   0.0 -  9.0
+7                    Mike Mazowski          LV       0      5   0.0 -  9.0
+8                 Alfredo Linguini          SP       0      5   0.0 -  9.0
+9                            Shrek          RV       0      3   0.0 -  9.0
+10               James P. Sullivan  Substitute       0      0   0.0 -  9.0
+11                   Felonious Gru  Substitute       0      0   0.0 -  9.0
+12                  Wreck-It Ralph          LB       1      4   9.0 - 18.0
+13                Carl Fredricksen         CB1       1      5   9.0 - 18.0
+14               James P. Sullivan         CB2       1      5   9.0 - 18.0
+15                          WALL-E          RB       1      3   9.0 - 18.0
+16                   Miguel Rivera          LM       1      4   9.0 - 18.0
+17                   Felonious Gru          CM       1      5   9.0 - 18.0
+18   Hiccup Horrendous Haddock III          RM       1      4   9.0 - 18.0
+19                   Mike Mazowski          LV       1      5   9.0 - 18.0
+20                Alfredo Linguini          SP       1      5   9.0 - 18.0
+21                           Shrek          RV       1      3   9.0 - 18.0
+22                             EVE  Substitute       1      0   9.0 - 18.0
+23                        Kowalski  Substitute       1      0   9.0 - 18.0
+24                  Wreck-It Ralph          LB       2      4  18.0 - 27.0
+25                Carl Fredricksen         CB1       2      5  18.0 - 27.0
+26               James P. Sullivan         CB2       2      5  18.0 - 27.0
+27                             EVE          RB       2      2  18.0 - 27.0
+28                   Miguel Rivera          LM       2      4  18.0 - 27.0
+29                   Felonious Gru          CM       2      5  18.0 - 27.0
+30                        Kowalski          RM       2      4  18.0 - 27.0
+31                   Mike Mazowski          LV       2      5  18.0 - 27.0
+32                Alfredo Linguini          SP       2      5  18.0 - 27.0
+33                           Shrek          RV       2      3  18.0 - 27.0
+34                          WALL-E  Substitute       2      0  18.0 - 27.0
+35   Hiccup Horrendous Haddock III  Substitute       2      0  18.0 - 27.0
+36                  Wreck-It Ralph          LB       3      4  27.0 - 36.0
+37                          WALL-E         CB1       3      4  27.0 - 36.0
+38               James P. Sullivan         CB2       3      5  27.0 - 36.0
+39                             EVE          RB       3      2  27.0 - 36.0
+40   Hiccup Horrendous Haddock III          LM       3      4  27.0 - 36.0
+41                   Felonious Gru          CM       3      5  27.0 - 36.0
+42                        Kowalski          RM       3      4  27.0 - 36.0
+43                   Mike Mazowski          LV       3      5  27.0 - 36.0
+44                Alfredo Linguini          SP       3      5  27.0 - 36.0
+45                           Shrek          RV       3      3  27.0 - 36.0
+46                   Miguel Rivera  Substitute       3      0  27.0 - 36.0
+47                Carl Fredricksen  Substitute       3      0  27.0 - 36.0
+48                  Wreck-It Ralph          LB       4      4  36.0 - 45.0
+49                          WALL-E         CB1       4      4  36.0 - 45.0
+50                Carl Fredricksen         CB2       4      5  36.0 - 45.0
+51                             EVE          RB       4      2  36.0 - 45.0
+52   Hiccup Horrendous Haddock III          LM       4      4  36.0 - 45.0
+53                   Felonious Gru          CM       4      5  36.0 - 45.0
+54                        Kowalski          RM       4      4  36.0 - 45.0
+55                   Mike Mazowski          LV       4      5  36.0 - 45.0
+56                Alfredo Linguini          SP       4      5  36.0 - 45.0
+57                   Miguel Rivera          RV       4      3  36.0 - 45.0
+58               James P. Sullivan  Substitute       4      0  36.0 - 45.0
+59                           Shrek  Substitute       4      0  36.0 - 45.0
+60                  Wreck-It Ralph          LB       5      4  45.0 - 54.0
+61               James P. Sullivan         CB1       5      5  45.0 - 54.0
+62                Carl Fredricksen         CB2       5      5  45.0 - 54.0
+63                             EVE          RB       5      2  45.0 - 54.0
+64   Hiccup Horrendous Haddock III          LM       5      4  45.0 - 54.0
+65                   Felonious Gru          CM       5      5  45.0 - 54.0
+66                        Kowalski          RM       5      4  45.0 - 54.0
+67                   Mike Mazowski          LV       5      5  45.0 - 54.0
+68                           Shrek          SP       5      5  45.0 - 54.0
+69                   Miguel Rivera          RV       5      3  45.0 - 54.0
+70                          WALL-E  Substitute       5      0  45.0 - 54.0
+71                Alfredo Linguini  Substitute       5      0  45.0 - 54.0
+72                          WALL-E          LB       6      3  54.0 - 63.0
+73               James P. Sullivan         CB1       6      5  54.0 - 63.0
+74                Carl Fredricksen         CB2       6      5  54.0 - 63.0
+75                             EVE          RB       6      2  54.0 - 63.0
+76   Hiccup Horrendous Haddock III          LM       6      4  54.0 - 63.0
+77                   Felonious Gru          CM       6      5  54.0 - 63.0
+78                        Kowalski          RM       6      4  54.0 - 63.0
+79                Alfredo Linguini          LV       6      3  54.0 - 63.0
+80                           Shrek          SP       6      5  54.0 - 63.0
+81                   Miguel Rivera          RV       6      3  54.0 - 63.0
+82                   Mike Mazowski  Substitute       6      0  54.0 - 63.0
+83                  Wreck-It Ralph  Substitute       6      0  54.0 - 63.0
+84                          WALL-E          LB       7      3  63.0 - 72.0
+85               James P. Sullivan         CB1       7      5  63.0 - 72.0
+86                Carl Fredricksen         CB2       7      5  63.0 - 72.0
+87                  Wreck-It Ralph          RB       7      4  63.0 - 72.0
+88   Hiccup Horrendous Haddock III          LM       7      4  63.0 - 72.0
+89                   Felonious Gru          CM       7      5  63.0 - 72.0
+90                        Kowalski          RM       7      4  63.0 - 72.0
+91                Alfredo Linguini          LV       7      3  63.0 - 72.0
+92                           Shrek          SP       7      5  63.0 - 72.0
+93                   Mike Mazowski          RV       7      5  63.0 - 72.0
+94                             EVE  Substitute       7      0  63.0 - 72.0
+95                   Miguel Rivera  Substitute       7      0  63.0 - 72.0
+96                          WALL-E          LB       8      3  72.0 - 81.0
+97               James P. Sullivan         CB1       8      5  72.0 - 81.0
+98                Carl Fredricksen         CB2       8      5  72.0 - 81.0
+99                  Wreck-It Ralph          RB       8      4  72.0 - 81.0
+100                  Miguel Rivera          LM       8      4  72.0 - 81.0
+101                  Felonious Gru          CM       8      5  72.0 - 81.0
+102                       Kowalski          RM       8      4  72.0 - 81.0
+103                            EVE          LV       8      1  72.0 - 81.0
+104                          Shrek          SP       8      5  72.0 - 81.0
+105                  Mike Mazowski          RV       8      5  72.0 - 81.0
+106  Hiccup Horrendous Haddock III  Substitute       8      0  72.0 - 81.0
+107               Alfredo Linguini  Substitute       8      0  72.0 - 81.0
+108                         WALL-E          LB       9      3  81.0 - 90.0
+109              James P. Sullivan         CB1       9      5  81.0 - 90.0
+110               Carl Fredricksen         CB2       9      5  81.0 - 90.0
+111                 Wreck-It Ralph          RB       9      4  81.0 - 90.0
+112                  Miguel Rivera          LM       9      4  81.0 - 90.0
+113  Hiccup Horrendous Haddock III          CM       9      5  81.0 - 90.0
+114                       Kowalski          RM       9      4  81.0 - 90.0
+115                            EVE          LV       9      1  81.0 - 90.0
+116               Alfredo Linguini          SP       9      5  81.0 - 90.0
+117                  Mike Mazowski          RV       9      5  81.0 - 90.0
+118                          Shrek  Substitute       9      0  81.0 - 90.0
+119                  Felonious Gru  Substitute       9      0  81.0 - 90.0
+
+                        player_in                     player_out  window minutes
+0               James P. Sullivan                            EVE       1     9.0
+1                   Felonious Gru                       Kowalski       1     9.0
+2                             EVE                         WALL-E       2    18.0
+3                        Kowalski  Hiccup Horrendous Haddock III       2    18.0
+4                          WALL-E               Carl Fredricksen       3    27.0
+5   Hiccup Horrendous Haddock III                  Miguel Rivera       3    27.0
+6                Carl Fredricksen              James P. Sullivan       4    36.0
+7                   Miguel Rivera                          Shrek       4    36.0
+8               James P. Sullivan                         WALL-E       5    45.0
+9                           Shrek               Alfredo Linguini       5    45.0
+10                         WALL-E                 Wreck-It Ralph       6    54.0
+11               Alfredo Linguini                  Mike Mazowski       6    54.0
+12                  Mike Mazowski                  Miguel Rivera       7    63.0
+13                 Wreck-It Ralph                            EVE       7    63.0
+14                            EVE               Alfredo Linguini       8    72.0
+15                  Miguel Rivera  Hiccup Horrendous Haddock III       8    72.0
+16               Alfredo Linguini                          Shrek       9    81.0
+17  Hiccup Horrendous Haddock III                  Felonious Gru       9    81.0
+
+WALL-E: RB (3) - RB (3) - Substitute (0) - CB1 (4) - CB1 (4) - Substitute (0) - LB (3) - LB (3) - LB (3) - LB (3)
+
+EVE: CB2 (3) - Substitute (0) - RB (2) - RB (2) - RB (2) - RB (2) - RB (2) - Substitute (0) - LV (1) - LV (1)
+
+Miguel Rivera: LM (4) - LM (4) - LM (4) - Substitute (0) - RV (3) - RV (3) - RV (3) - Substitute (0) - LM (4) - LM (4)
+
+Carl Fredricksen: CB1 (5) - CB1 (5) - CB1 (5) - Substitute (0) - CB2 (5) - CB2 (5) - CB2 (5) - CB2 (5) - CB2 (5) - CB2 (5)
+
+Mike Mazowski: LV (5) - LV (5) - LV (5) - LV (5) - LV (5) - LV (5) - Substitute (0) - RV (5) - RV (5) - RV (5)
+
+James P. Sullivan: Substitute (0) - CB2 (5) - CB2 (5) - CB2 (5) - Substitute (0) - CB1 (5) - CB1 (5) - CB1 (5) - CB1 (5) - CB1 (5)
+
+Hiccup Horrendous Haddock III: RM (4) - RM (4) - Substitute (0) - LM (4) - LM (4) - LM (4) - LM (4) - LM (4) - Substitute (0) - CM (5)
+
+Wreck-It Ralph: LB (4) - LB (4) - LB (4) - LB (4) - LB (4) - LB (4) - Substitute (0) - RB (4) - RB (4) - RB (4)
+
+Shrek: RV (3) - RV (3) - RV (3) - RV (3) - Substitute (0) - SP (5) - SP (5) - SP (5) - SP (5) - Substitute (0)
+
+Alfredo Linguini: SP (5) - SP (5) - SP (5) - SP (5) - SP (5) - Substitute (0) - LV (3) - LV (3) - Substitute (0) - SP (5)
+
+Felonious Gru: Substitute (0) - CM (5) - CM (5) - CM (5) - CM (5) - CM (5) - CM (5) - CM (5) - CM (5) - Substitute (0)
+
+Kowalski: CM (5) - Substitute (0) - RM (4) - RM (4) - RM (4) - RM (4) - RM (4) - RM (4) - RM (4) - RM (4)

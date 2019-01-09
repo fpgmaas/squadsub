@@ -27,4 +27,4 @@ The entire formulation can be found [here.](https://github.com/flo12392/squadsub
 - First, edit the file in *data/skillmatrix.csv* so it contains the skillmatrix of your team.
 - Make sure you have [PuLP](https://pythonhosted.org/PuLP/main/installing_pulp_at_home.html) installed.
 - run *main.py*
-- When the script is done running, the solutions to your problem can be found in the *results* folder.
+- When the script is done running, the solutions to your problem can be found in the *results* folder. An example of a resulting file can be found [here](https://github.com/flo12392/squadsub/blob/master/results/example_result.csv).
