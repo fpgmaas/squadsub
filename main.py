@@ -1,4 +1,5 @@
 from squad_problem import *
+import numpy
 import pandas as pd
 
 # SETTINGS -------------------------------------------------------------------------------------------------------------
@@ -16,8 +17,12 @@ n_solutions = 10
 
 # PREPARE DATA FOR LP PROBLEM ------------------------------------------------------------------------------------------
 
-skillmatrix = pd.read_csv('data/skillmatrix.csv', sep=',',header=0, index_col = 0)
+skillmatrix = pd.read_csv('data/skillmatrix.csv', sep=',', header=0, index_col=0)
 sk = SkillMatrix(skillmatrix)
+
+print('\n------------------------ START ------------------------\n')
+print('Calculating the optimal substitution strategy for the team with skillmatrix:\n')
+print(skillmatrix)
 
 windows = list(range(n_windows))
 
@@ -28,19 +33,23 @@ squad_solution = squad_problem.solve()
 
 for i in range(n_solutions):
 
+    print('\n--- Iteration ' + str(i) + ' ---')
+
     # If problem already solved and optimal; add constraint.
-    if squad_solution.get_lp_status()>0:
+    if squad_solution.get_lp_status() > 0:
         squad_problem.update_squad_problem()
 
     # If problem is being solved for the first time, or it is optimal and we just added a constraint, slve and write to file.
-    if squad_solution.get_lp_status()>=0:
+    if squad_solution.get_lp_status() >= 0:
         squad_problem.solve()
 
-        if squad_solution.get_lp_status()>0:
+        if squad_solution.get_lp_status() > 0:
             squad_solution.write_solution_to_txt_file('results/' + str(i) + '_result.txt')
             squad_solution.write_squad_dataframe_to_csv('results/' + str(i) + '_squad.csv')
             squad_solution.write_substitutions_dataframe_to_csv('results/' + str(i) + '_substitutions.csv')
 
-        elif i==0:
+        elif i == 0:
             tfile = open('INFEASIBLE PROBLEM', 'w')
             tfile.close()
+
+print('\n------------------------ FINISHED ------------------------\n')

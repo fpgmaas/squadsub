@@ -13,12 +13,12 @@ Obviously, the optimal strategy would be to create one optimal squad and have th
 
 This problem can be solved by modelling it as a Linear Programming problem. The input for this LP is the skillmatrix, containing the skills of a set of players at a set of positions.
 
-|          | Position 1 | Position 2 | Position 3 |
+|          | Left Back | Right Midfielder | Striker |
 | -------- | ---------- | ---------- | ---------- |
-| Player 1 | 5          | 3          | 3          |
-| Player 2 | 1          | 5          | 5          |
-| Player 3 | 3          | 3          | 3          |
-| Player 4 | 2          | 5          | 2          |
+| Wall-E | 5          | 3          | 3          |
+| Eve | 1          | 5          | 5          |
+| Mike Mazowski | 3          | 3          | 3          |
+| James P. Sullivan | 2          | 5          | 2          |
 
 To model this problem, the match is split up into *w* periods of equal length. The decision variables for this LP problem can then be defined as *x<sub>pqw</sub>* , where *x<sub>pqw</sub>* is 1 if player *p* plays at position *q* during time window *w* and 0 otherwise. The entire formulation can be found [here.](https://github.com/flo12392/squadsub/blob/master/formulation/formulation.pdf)
 

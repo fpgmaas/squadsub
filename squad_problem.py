@@ -1,6 +1,7 @@
 from pulp import *
 from utils import *
 
+
 class SquadProblem:
     """
     The SquadProblem Class is a class that optimizes the substitution strategy during a sports match, given a group of
@@ -96,16 +97,20 @@ class SquadProblem:
         Update the squad problem by adding a constraint that forces the next solution to be different from the current solution.
         """
         sk = self.sk
-        total = np.sum([value(self.x[p][q][w]) for p in sk.get_players() for q in sk.get_positions() for w in self.windows])
-        self.lp_problem += lpSum( [(1 if value(self.x[p][q][w]) > 0 else -1) * self.x[p][q][w]
-                                 for p in sk.get_players() for q in sk.get_positions() for w in self.windows]) <= total - 1
+        total = np.sum(
+            [value(self.x[p][q][w]) for p in sk.get_players() for q in sk.get_positions() for w in self.windows])
+        self.lp_problem += lpSum([(1 if value(self.x[p][q][w]) > 0 else -1) * self.x[p][q][w]
+                                  for p in sk.get_players() for q in sk.get_positions() for w in
+                                  self.windows]) <= total - 1
+
 
 class SquadSolution():
     """
     A class to hold and process the results of an LP problem created by solving a SquadProblem object.
     """
 
-    def __init__(self, lp_problem: pulp.LpProblem, x: LpVariable, sk: SkillMatrix, windows: int, n_windows: int, match_time: int):
+    def __init__(self, lp_problem: pulp.LpProblem, x: LpVariable, sk: SkillMatrix, windows: int, n_windows: int,
+                 match_time: int):
         """
         Constructor of the SquadSolution object.
         :param lp_problem: A PuLP LP problem
@@ -120,15 +125,17 @@ class SquadSolution():
         self.sk = sk
         self.windows = windows
 
-        window_minutes_ = [(i*(match_time/n_windows),(i+1)*(match_time/n_windows)) for i in range(n_windows)]
+        window_minutes_ = [(i * (match_time / n_windows), (i + 1) * (match_time / n_windows)) for i in range(n_windows)]
         window_minutes = [str(x[0]).rjust(4) + ' - ' + str(x[1]).rjust(4) for x in window_minutes_]
         window_starts = [str(x[0]).rjust(4) for x in window_minutes_]
 
         players = sk.get_players()
         positions = sk.get_positions()
         windows = self.windows
-        solution_per_time = np.array([[[self.x[p][q][w].varValue for p in players] for q in positions] for w in windows])
-        solution_per_position = np.array([[[self.x[p][q][w].varValue for w in windows] for p in players] for q in positions])
+        solution_per_time = np.array(
+            [[[self.x[p][q][w].varValue for p in players] for q in positions] for w in windows])
+        solution_per_position = np.array(
+            [[[self.x[p][q][w].varValue for w in windows] for p in players] for q in positions])
 
         df_substitutions = get_substitution_dataframe(solution_per_position, sk, windows)
         df_substitutions['minutes'] = [window_starts[i] for i in df_substitutions['window']]
@@ -162,17 +169,16 @@ class SquadSolution():
                 lambda x: '{} ({})'.format(x[0], str(x[1])), axis=1).tolist()))
         tfile.close()
 
-    def write_squad_dataframe_to_csv(self,file_name):
+    def write_squad_dataframe_to_csv(self, file_name):
         """
         Write the long DataFrame with all the player's positions at each time window to csv.
         :param file_name: The file name of the csv file to be creaed.
         """
-        self.df_squad.to_csv(file_name, index = False)
+        self.df_squad.to_csv(file_name, index=False)
 
     def write_substitutions_dataframe_to_csv(self, file_name):
         """
         Write the DataFrame with the substitutions to be performed to a csv file.
         :param file_name: The file name of the csv file to be creaed.
         """
-        self.df_substitutions.to_csv(file_name, index = False)
-
+        self.df_substitutions.to_csv(file_name, index=False)

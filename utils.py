@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 from itertools import product
 
+
 class SkillMatrix():
     """
     A Class to hold a skillmatrix and return its values or other parameters like the player- and position names.
@@ -68,7 +69,8 @@ def get_substitution_dataframe(solution_per_position, sk, windows) -> pd.DataFra
     df_substitutions = df_substitutions.drop('index', axis=1)
     return df_substitutions
 
-def get_squad_dataframe(solution_per_time,sk,windows):
+
+def get_squad_dataframe(solution_per_time, sk, windows):
     """
     Convert a solution in the shape [w,q,p] to a long DataFrame of all the player's positions at each time window,
     where q is the number of positions, p is the number of players, and w is the time window.
