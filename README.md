@@ -1,6 +1,6 @@
 ## The Squad Substitution Optimization Problem
 
-<img src="etc/soccer-ball-ss-img.jpg" alt="drawing" width="300"/>
+![](data/walle_eve_soccer.png)
 
 ### Problem definition
 
