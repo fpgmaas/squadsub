@@ -1,31 +1,38 @@
-name: squadsubenv
+name: squadsub
 channels:
+  - conda-forge
   - defaults
 dependencies:
-  - blas=1.0=mkl
-  - ca-certificates=2018.12.5=0
-  - certifi=2018.11.29=py37_0
-  - icc_rt=2019.0.0=h0cc432a_1
-  - intel-openmp=2019.1=144
-  - mkl=2019.1=144
-  - mkl_fft=1.0.10=py37h14836fe_0
-  - mkl_random=1.0.2=py37h343c172_0
-  - numpy=1.15.4=py37h19fb1c0_0
-  - numpy-base=1.15.4=py37hc3f5095_0
-  - openssl=1.1.1a=he774522_0
-  - pandas=0.24.0=py37ha925a31_0
-  - pip=18.1=py37_0
-  - python=3.7.2=h8c8aaf0_0
-  - python-dateutil=2.7.5=py37_0
-  - pytz=2018.9=py37_0
-  - setuptools=40.6.3=py37_0
-  - six=1.12.0=py37_0
-  - sqlite=3.26.0=he774522_0
-  - vc=14.1=h0510ff6_4
-  - vs2015_runtime=14.15.26706=h3a45250_0
-  - wheel=0.32.3=py37_0
-  - wincertstore=0.2=py37_0
+  - ca-certificates=2020.6.20=hecda079_0
+  - certifi=2020.6.20=py37hc8dfbb8_0
+  - libblas=3.8.0=17_openblas
+  - libcblas=3.8.0=17_openblas
+  - libcxx=10.0.1=h5f48129_0
+  - libffi=3.2.1=hb1e8313_1007
+  - libgfortran=4.0.0=h2d743fc_11
+  - libgfortran4=7.5.0=h2d743fc_11
+  - liblapack=3.8.0=17_openblas
+  - libopenblas=0.3.10=openmp_h63d9170_4
+  - llvm-openmp=10.0.1=h28b9765_0
+  - ncurses=6.2=hb1e8313_1
+  - numpy=1.19.1=py37h1efc2f6_2
+  - openssl=1.1.1h=haf1e3a3_0
+  - pandas=1.1.2=py37hdadc0f0_0
+  - pip=20.2.3=py_0
+  - python=3.7.8=hc9dea61_1_cpython
+  - python-dateutil=2.8.1=py_0
+  - python_abi=3.7=1_cp37m
+  - pytz=2020.1=pyh9f0ad1d_0
+  - readline=8.0=h0678c8f_2
+  - setuptools=49.6.0=py37hc8dfbb8_1
+  - six=1.15.0=pyh9f0ad1d_0
+  - sqlite=3.33.0=h960bd1c_0
+  - tk=8.6.10=hb0a8c7a_0
+  - wheel=0.35.1=pyh9f0ad1d_0
+  - xz=5.2.5=haf1e3a3_1
+  - zlib=1.2.11=h7795811_1009
   - pip:
-    - pulp==1.6.9
-    - pyparsing==2.3.1
-
+    - amply==0.1.2
+    - docutils==0.16
+    - pulp==2.3
+    - pyparsing==2.4.7

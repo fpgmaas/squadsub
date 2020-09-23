@@ -47,7 +47,7 @@ class SquadProblem:
 
         # THE LP formulation -------------------------------------------------
 
-        prob = LpProblem("Squad Substitution Problem", LpMaximize)
+        prob = LpProblem("Squad_Substitution_Problem", LpMaximize)
         x = self.x
 
         # The objective function, maximimize the total skills of the team.
